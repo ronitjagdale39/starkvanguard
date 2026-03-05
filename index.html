@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JARVIS Command Room</title>
+    <!-- Modern tech fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="overlay-grid"></div>
+    <div class="container">
+
+        <header class="header">
+            <div class="classified-text"><span>—</span> CLASSIFIED // SEQUENCE 892 <span>—</span></div>
+            <h1 class="stage-title">STARK VANGUARD LABS</h1>
+            <h2 class="mission-briefing">MISSION BRIEFING: JARVIS COMMAND ROOM</h2>
+            <p class="objective"><span>Round 2 Objective:</span> Design the <strong>Arc Reactor Energy Distribution
+                    Panel</strong></p>
+        </header>
+
+        <div class="main-panel">
+            <div class="reactor-section">
+                <!-- Arc Reactor Visual -->
+                <div class="arc-reactor">
+                    <div class="reactor-core"></div>
+                    <div class="reactor-ring-1"></div>
+                    <div class="reactor-ring-2">
+                        <div class="coil" style="--i:1;"></div>
+                        <div class="coil" style="--i:2;"></div>
+                        <div class="coil" style="--i:3;"></div>
+                        <div class="coil" style="--i:4;"></div>
+                        <div class="coil" style="--i:5;"></div>
+                        <div class="coil" style="--i:6;"></div>
+                        <div class="coil" style="--i:7;"></div>
+                        <div class="coil" style="--i:8;"></div>
+                        <div class="coil" style="--i:9;"></div>
+                        <div class="coil" style="--i:10;"></div>
+                    </div>
+                </div>
+
+                <div class="energy-display">
+                    <div class="energy-box">
+                        <div class="energy-label">TOTAL ENERGY CAPACITY</div>
+                        <div class="energy-value">100 <span class="unit">UNITS</span></div>
+                    </div>
+                    <div class="energy-box highlight">
+                        <div class="energy-label">REMAINING POWER</div>
+                        <div class="energy-value remaining-val"><span id="remaining">100</span> <span
+                                class="unit">UNITS</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="systems-grid">
+
+                <div class="system-card" id="card-propulsion" data-system="propulsion">
+                    <div class="system-header">
+                        <h3>PROPULSION</h3>
+                        <div class="efficiency">EFFICIENCY: <span id="eff-propulsion">0%</span></div>
+                    </div>
+                    <div class="controls">
+                        <button class="btn btn-minus" onclick="changePower('propulsion', -5)">
+                            <svg viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="currentColor" d="M19,13H5V11H19V13Z" />
+                            </svg>
+                        </button>
+                        <div class="power-readout">
+                            <span id="propulsion" class="power-val">0</span>
+                        </div>
+                        <button class="btn btn-plus" onclick="changePower('propulsion', 5)">
+                            <svg viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="currentColor" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-track"></div>
+                        <div class="bar-fill" id="propulsion-bar"></div>
+                    </div>
+                </div>
+
+                <div class="system-card" id="card-defense" data-system="defense">
+                    <div class="system-header">
+                        <h3>DEFENSE</h3>
+                        <div class="efficiency">EFFICIENCY: <span id="eff-defense">0%</span></div>
+                    </div>
+                    <div class="controls">
+                        <button class="btn btn-minus" onclick="changePower('defense', -5)">
+                            <svg viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="currentColor" d="M19,13H5V11H19V13Z" />
+                            </svg>
+                        </button>
+                        <div class="power-readout">
+                            <span id="defense" class="power-val">0</span>
+                        </div>
+                        <button class="btn btn-plus" onclick="changePower('defense', 5)">
+                            <svg viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="currentColor" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-track"></div>
+                        <div class="bar-fill" id="defense-bar"></div>
+                    </div>
+                </div>
+
+                <div class="system-card" id="card-navigation" data-system="navigation">
+                    <div class="system-header">
+                        <h3>NAVIGATION</h3>
+                        <div class="efficiency">EFFICIENCY: <span id="eff-navigation">0%</span></div>
+                    </div>
+                    <div class="controls">
+                        <button class="btn btn-minus" onclick="changePower('navigation', -5)">
+                            <svg viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="currentColor" d="M19,13H5V11H19V13Z" />
+                            </svg>
+                        </button>
+                        <div class="power-readout">
+                            <span id="navigation" class="power-val">0</span>
+                        </div>
+                        <button class="btn btn-plus" onclick="changePower('navigation', 5)">
+                            <svg viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="currentColor" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-track"></div>
+                        <div class="bar-fill" id="navigation-bar"></div>
+                    </div>
+                </div>
+
+                <div class="system-card" id="card-communication" data-system="communication">
+                    <div class="system-header">
+                        <h3>COMMUNICATION</h3>
+                        <div class="efficiency">EFFICIENCY: <span id="eff-communication">0%</span></div>
+                    </div>
+                    <div class="controls">
+                        <button class="btn btn-minus" onclick="changePower('communication', -5)">
+                            <svg viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="currentColor" d="M19,13H5V11H19V13Z" />
+                            </svg>
+                        </button>
+                        <div class="power-readout">
+                            <span id="communication" class="power-val">0</span>
+                        </div>
+                        <button class="btn btn-plus" onclick="changePower('communication', 5)">
+                            <svg viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="currentColor" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-track"></div>
+                        <div class="bar-fill" id="communication-bar"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="status-panel">
+                <div class="status-indicator">
+                    <div class="status-dot" id="status-dot"></div>
+                    <span id="status-text">SYSTEM STABLE</span>
+                </div>
+                <div class="error-msg" id="error-msg"></div>
+            </div>
+
+            <div class="action-row">
+                <button class="btn-primary">ACCESS COMMAND ROOM</button>
+            </div>
+
+        </div>
+    </div>
+    <script src="in.js"></script>
+</body>
+
+</html>
